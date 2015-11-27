@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        applicationId "cn.sharesdk.login.demo"
+        minSdkVersion 15
+        targetSdkVersion 19
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+    //配置keystore签名
+    signingConfigs {//一定写在buildtype前面
+        release {
+            storeFile file("demokey.keystore")
+            storePassword "123456"
+            keyAlias "demokey.keystore"
+            keyPassword "123456"
+        }
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile files('libs/MobCommons.jar')
+    compile files('libs/MobTools.jar')
+    compile files('libs/ShareSDK-Alipay-2.6.4.jar')
+    compile files('libs/ShareSDK-Bluetooth-2.6.4.jar')
+    compile files('libs/ShareSDK-Core-2.6.4.jar')
+    compile files('libs/ShareSDK-Douban-2.6.4.jar')
+    compile files('libs/ShareSDK-Dropbox-2.6.4.jar')
+    compile files('libs/ShareSDK-Email-2.6.4.jar')
+    compile files('libs/ShareSDK-Evernote-2.6.4.jar')
+    compile files('libs/ShareSDK-Facebook-2.6.4.jar')
+    compile files('libs/ShareSDK-FacebookMessenger-2.6.4.jar')
+    compile files('libs/ShareSDK-Flickr-2.6.4.jar')
+    compile files('libs/ShareSDK-Foursquare-2.6.4.jar')
+    compile files('libs/ShareSDK-GooglePlus-2.6.4.jar')
+    compile files('libs/ShareSDK-Instagram-2.6.4.jar')
+    compile files('libs/ShareSDK-Instapaper-2.6.4.jar')
+    compile files('libs/ShareSDK-KaiXin-2.6.4.jar')
+    compile files('libs/ShareSDK-Kakao-Core-2.6.4.jar')
+    compile files('libs/ShareSDK-KakaoStory-2.6.4.jar')
+    compile files('libs/ShareSDK-KakaoTalk-2.6.4.jar')
+    compile files('libs/ShareSDK-Line-2.6.4.jar')
+    compile files('libs/ShareSDK-Linkedin-2.6.4.jar')
+    compile files('libs/ShareSDK-Mingdao-2.6.4.jar')
+    compile files('libs/ShareSDK-Pinterest-2.6.4.jar')
+    compile files('libs/ShareSDK-Pocket-2.6.4.jar')
+    compile files('libs/ShareSDK-QQ-2.6.4.jar')
+    compile files('libs/ShareSDK-QZone-2.6.4.jar')
+    compile files('libs/ShareSDK-Renren-2.6.4.jar')
+    compile files('libs/ShareSDK-ShortMessage-2.6.4.jar')
+    compile files('libs/ShareSDK-SinaWeibo-2.6.4.jar')
+    compile files('libs/ShareSDK-SohuSuishenkan-2.6.4.jar')
+    compile files('libs/ShareSDK-TencentWeibo-2.6.4.jar')
+    compile files('libs/ShareSDK-Tumblr-2.6.4.jar')
+    compile files('libs/ShareSDK-Twitter-2.6.4.jar')
+    compile files('libs/ShareSDK-VKontakte-2.6.4.jar')
+    compile files('libs/ShareSDK-Wechat-2.6.4.jar')
+    compile files('libs/ShareSDK-Wechat-Core-2.6.4.jar')
+    compile files('libs/ShareSDK-Wechat-Favorite-2.6.4.jar')
+    compile files('libs/ShareSDK-Wechat-Moments-2.6.4.jar')
+    compile files('libs/ShareSDK-WhatsApp-2.6.4.jar')
+    compile files('libs/ShareSDK-Yixin-2.6.4.jar')
+    compile files('libs/ShareSDK-Yixin-Core-2.6.4.jar')
+    compile files('libs/ShareSDK-Yixin-Moments-2.6.4.jar')
+    compile files('libs/ShareSDK-YouDao-2.6.4.jar')
+
+    compile 'com.android.support:design:23.0.1'
+    compile 'com.github.djun100:UtilAndroid:0fe67d6f8640473ab3ad1a936d4b315cc8367363'
+}
